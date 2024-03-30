@@ -1,10 +1,48 @@
 window.onload = () => {
+  // getting my elements from html
+  const wrapper = document.querySelector('.wrapper');
   const quoteP = document.getElementById('generator');
   const genButton = document.querySelector('#gen-btn');
+  const body = document.querySelector('body');
+  const modeButton = document.querySelector('#light-dark-btn');
+
+
+  // getting local storage mode
+  const storedMode = localStorage.getItem('mode');
+
+  if (storedMode === 'dark') {
+    activateDarkMode();
+  } else {
+    activatedLightMode();
+  }
+
+  modeButton.addEventListener('click', () => {
+    // modeButton.classList.toggle('light')
+
+    if (wrapper.classList.toggle('dark')) {
+      activateDarkMode();
+      // modeButton.innerHTML = 'Light Mode';
+      // modeButton.style.color = 'white';
+      // modeButton.style.border = 'none';
+      // body.style.background = 'black';
+      // body.style.color = 'white';
+      localStorage.setItem('mode', 'dark');
+    } else {
+      activatedLightMode();
+      // modeButton.innerHTML = 'Dark Mode'
+      // modeButton.style.color = 'black'
+      // modeButton.style.border = 'none';
+      // body.style.background = 'white';
+      // body.style.color = 'black';
+      localStorage.setItem('mode', 'light');
+    }
+
+    // localStorage.setItem('lastMode', randomQuoteText);
+  })
 
 
   genButton.addEventListener('click', () => {
-    let randomQuoteText = randomQuote()
+    let randomQuoteText = randomQuote();
 
     quoteP.innerHTML = randomQuoteText;
 
@@ -21,7 +59,7 @@ window.onload = () => {
 
   let randomQuote = (quotes, random) => {
     quotes = [
-      "The only way to do great work is to love what you do. - Steve Jobs",
+    "The only way to do great work is to love what you do. - Steve Jobs",
     "Innovation distinguishes between a leader and a follower. - Steve Jobs",
     "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
     "The best way to predict the future is to invent it. - Alan Kay",
@@ -46,5 +84,21 @@ window.onload = () => {
 
     return quotes[random]
   };
+
+  function activatedLightMode() {
+    modeButton.innerHTML = 'Light Mode';
+    modeButton.style.color = 'white';
+    modeButton.style.border = 'none';
+    body.style.background = 'black';
+    body.style.color = 'white';
+  }
+  
+  function activateDarkMode() {
+    modeButton.innerHTML = 'Dark Mode'
+    modeButton.style.color = 'black'
+    modeButton.style.border = 'none';
+    body.style.background = 'white';
+    body.style.color = 'black';
+  }
 
 }

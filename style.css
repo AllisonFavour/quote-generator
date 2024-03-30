@@ -8,9 +8,9 @@ body {
   font-family: 'Roboto', sans-serif;
   width: 100%;
   word-wrap: break-word;
-  word-break: break-all;
-  background-color: black;
-  color: white;
+  /* word-break: break-all; */
+  /* background-color: black;
+  color: white; */
 }
 
 button {
@@ -22,12 +22,16 @@ button {
 
 .wrapper {
   width: 100%;
-  max-width: 400px;
+  max-width: 300px;
   margin: 0 auto;
   padding: 40px 10px 20px;
   text-align: center;
-  background-color: black;
-  color: white;
+  /* background-color: black;
+  color: white; */
+}
+
+.light-dark {
+  margin: 20px 0;
 }
 
 .wrapper > h1 {
@@ -47,6 +51,7 @@ button {
 }
 
 .wrapper button {
+  background-color: orange;
   color: white;
   font-size: 16px;
   font-weight: 700;
@@ -57,10 +62,12 @@ button {
   cursor: pointer;
 }
 
-.wrapper button:hover {
+/* .wrapper button:hover {
   color: green;
 }
 
 .wrapper button:active {
   color: red;
-}
+} */
+
+/* s */
